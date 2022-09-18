@@ -6,7 +6,7 @@ const App = () => {
   const [valor1, setValor1] = useState(0);
   const [valor2, setValor2] = useState(0);
   const [resultado, setResultado] = useState(0);
-  const [calculoText, setCalculoText] = useState('Clique no botão para gerar uma conta');
+  const [calculoText, setCalculoText] = useState('Clique no botão para gerar uma questão de multiplicar');
   const [resposta, setResposta] = useState(0);
 
   function getRandomInt(min: number, max: number) {

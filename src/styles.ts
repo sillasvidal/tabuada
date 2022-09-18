@@ -27,6 +27,10 @@ export const AppContainer = styled.div`
 
   border: 1px solid black;
   border-radius: 20px;
+
+  @media(max-width: 600px) {
+    width: 90%;
+  }
 `;
 
 export const ButtonNextQuestion = styled.button`
@@ -45,7 +49,7 @@ export const ButtonNextQuestion = styled.button`
 `;
 
 export const TitleQuestion = styled.h1`
-  
+  text-align: center;
 `;
 
 export const InputResponse = styled.input`
@@ -53,6 +57,9 @@ export const InputResponse = styled.input`
   height: 30px;
 
   margin-bottom: 20px;
+
+  border: 1px solid black;
+  border-radius: 10px;
 `;
 
 export const ConfirmButton = styled.button`
