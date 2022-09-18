@@ -31,6 +31,11 @@ export const AppContainer = styled.div`
   @media(max-width: 600px) {
     width: 90%;
   }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const ButtonNextQuestion = styled.button`
@@ -50,11 +55,6 @@ export const ButtonNextQuestion = styled.button`
 
 export const TitleQuestion = styled.h1`
   text-align: center;
-`;
-
-export const FormQuestion = styled.form`
-  display: flex;
-  flex-direction: column;
 `;
 
 export const InputResponse = styled.input`
