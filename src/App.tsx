@@ -1,25 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import { useState } from 'react';
+import { Container, AppContainer, ButtonNextQuestion, TitleQuestion, InputResponse, ConfirmButton } from './styles';
+
+const App = () => {
+  const [valor1, setValor1] = useState(0);
+  const [valor2, setValor2] = useState(0);
+  const [resultado, setResultado] = useState(0);
+  const [calculoText, setCalculoText] = useState('Clique no botão para gerar uma conta');
+  const [resposta, setResposta] = useState(0);
+
+  function getRandomInt(min: number, max: number) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+  }
+
+  function montarCalculo() {
+    const valor1 = getRandomInt(0, 10);
+    const valor2 = getRandomInt(0, 10);
+    const resultado = valor1 * valor2;
+
+    setValor1(valor1);
+    setValor2(valor2);
+    setResultado(resultado);
+    setCalculoText(`${valor1} x ${valor2}: `);
+  }
+
+  function confirmarResultado() {
+    const respostaCorreta = resposta === resultado;
+
+    if (respostaCorreta) {
+      alert('CORRETO!!! Você acertou :D');
+    } else {
+      alert('Poxa, você errou... :(');
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <AppContainer>
+        <ButtonNextQuestion onClick={montarCalculo}>Próxima pergunta</ButtonNextQuestion>
+
+        <TitleQuestion>{calculoText}</TitleQuestion>
+        
+        <InputResponse type="text" onChange={e => setResposta(Number(e.target.value))} placeholder='Insira a resposta' />
+        <ConfirmButton onClick={confirmarResultado}>Confirmar</ConfirmButton>
+      </AppContainer>
+    </Container>
   );
 }
 
