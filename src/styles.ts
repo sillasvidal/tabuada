@@ -52,6 +52,11 @@ export const TitleQuestion = styled.h1`
   text-align: center;
 `;
 
+export const FormQuestion = styled.form`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const InputResponse = styled.input`
   width: 200px;
   height: 30px;

@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { Container, AppContainer, ButtonNextQuestion, TitleQuestion, InputResponse, ConfirmButton } from './styles';
+import { Container, AppContainer, ButtonNextQuestion, TitleQuestion, InputResponse, ConfirmButton, FormQuestion } from './styles';
 
 const App = () => {
   const [valor1, setValor1] = useState(0);
@@ -43,8 +43,10 @@ const App = () => {
 
         <TitleQuestion>{calculoText}</TitleQuestion>
         
-        <InputResponse type="text" onChange={e => setResposta(Number(e.target.value))} placeholder='Insira a resposta' />
-        <ConfirmButton onClick={confirmarResultado}>Confirmar</ConfirmButton>
+        <FormQuestion>
+          <InputResponse type="text" onChange={e => setResposta(Number(e.target.value))} placeholder='Insira a resposta' />
+          <ConfirmButton type='submit' onClick={confirmarResultado}>Confirmar</ConfirmButton>
+        </FormQuestion>
       </AppContainer>
     </Container>
   );
