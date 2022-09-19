@@ -10,11 +10,9 @@ import {
   InputResponse, 
   ConfirmButton 
 } from './styles';
-import { useToast } from './hooks/toast';
 
 const App = () => {
   const formRef = useRef<FormHandles>(null);
-  const { addToast } = useToast();
 
   const [valor1, setValor1] = useState(0);
   const [valor2, setValor2] = useState(0);
@@ -41,18 +39,10 @@ const App = () => {
     const respostaCorreta = resposta === resultado;
 
     if (respostaCorreta) {
-      addToast({
-        type: 'success',
-        title: 'Obaaa',
-        description: 'Você acertou :D'
-      });
+      alert('Obaaa! Você acertou :D');
       montarCalculo();
     } else {
-      addToast({
-        type: 'error',
-        title: 'Poxa. Você errou... :(',
-        description: `Resposta certa: ${resultado}`
-      });
+      alert('Poxa. Você errou... :(');
     }
   }
 
